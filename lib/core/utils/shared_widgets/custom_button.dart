@@ -12,6 +12,7 @@ class CustomButton extends StatelessWidget {
     this.bottomLeft = 0,
     this.topRight = 0,
     this.bottomRight = 0,
+    this.onPressed,
   });
 
   final Color backGroundColor;
@@ -21,11 +22,12 @@ class CustomButton extends StatelessWidget {
   final double bottomLeft;
   final double topRight;
   final double bottomRight;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: onPressed,
       height: 48,
       color: backGroundColor,
       shape: RoundedRectangleBorder(

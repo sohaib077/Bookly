@@ -1,6 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:bookly/Features/home/data/repos/home_repo.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/model/book_model/BookModel.dart';
 
