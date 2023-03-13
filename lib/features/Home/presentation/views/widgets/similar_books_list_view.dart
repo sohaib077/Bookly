@@ -17,7 +17,7 @@ class SimilarBooksListView extends StatelessWidget {
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => const FeaturedBookItem(),
+        itemBuilder: (context, index) => const FeaturedBookItem( imageUrl: 'asdf'),
         separatorBuilder: (context, index) => const SizedBox(width: 10),
         itemCount: 20,
       ),

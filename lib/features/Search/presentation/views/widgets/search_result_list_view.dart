@@ -9,15 +9,16 @@ class SearchResultListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.separated(
-        // shrinkWrap: true,
-        physics: const BouncingScrollPhysics(),
-        padding: EdgeInsets.zero,
-        itemBuilder: (context, state) => const BestSellerListViewItem(),
-        separatorBuilder: (context, state) => const SizedBox(height: 20),
-        itemCount: 10,
-      ),
+    return const Expanded(
+      // child: ListView.separated(
+      //   // shrinkWrap: true,
+      //   physics: const BouncingScrollPhysics(),
+      //   padding: EdgeInsets.zero,
+      //   itemBuilder: (context, index) => const BestSellerListViewItem(),
+      //   separatorBuilder: (context, index) => const SizedBox(height: 20),
+      //   itemCount: 10,
+      // ),
+      child: Text('search'),
     );
   }
 }

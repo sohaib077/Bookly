@@ -27,7 +27,7 @@ class HomeViewBody extends StatelessWidget {
                 padding: EdgeInsets.only(
                     top: 50.h, right: 10.w, left: 10.w, bottom: 20.h),
                 child: Text(
-                  'Best Seller',
+                  'Newest Books',
                   style: Styles.textStyleSemiBold18,
                 ),
               ),
