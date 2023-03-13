@@ -1,3 +1,4 @@
+import 'package:bookly/core/loading_widgets/featured_book_item_shimmer.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/shared_widgets/custom_error_widget.dart';
 import 'package:bookly/features/Home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
@@ -26,17 +27,31 @@ class FeaturedBooksListView extends StatelessWidget {
               itemBuilder: (context, index) => Padding(
                 padding: EdgeInsets.symmetric(horizontal: 6.w),
                 child: GestureDetector(
-                  onTap: (){
-                    GoRouter.of(context).push(AppRouter.kBookDetailsView ,extra: state.books[index]);
-                  },
-                    child: FeaturedBookItem(imageUrl: state.books[index].volumeInfo?.imageLinks?.thumbnail ?? ' ' )),
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kBookDetailsView,
+                          extra: state.books[index]);
+                    },
+                    child: FeaturedBookItem(
+                        imageUrl: state.books[index].volumeInfo?.imageLinks
+                                ?.thumbnail ??
+                            ' ')),
               ),
             ),
           );
         } else if (state is FeaturedBooksFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * 0.3,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              itemBuilder: (context, index) => Padding(
+                padding: EdgeInsets.symmetric(horizontal: 6.w),
+                child: const FeaturedBookItemShimmer(),
+              ),
+            ),
+          );
         }
       },
     );
